@@ -37,7 +37,7 @@
 
 .table-container {
     width: 100%;
-    max-width: 800px; /* Ancho máximo de la tabla */
+    /* max-width: 800px; Ancho máximo de la tabla */
     background-color: #fff; /* Fondo blanco */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
     border-radius: 10px;
