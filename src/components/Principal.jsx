@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css"; //Para mensaje notificacion flot
 import "../styles/Paises.css";
 import "../styles/Principal.css";
 import "../styles/TablaPaises.css";
-
+ 
 const Principal = () => {
   const [inputValueOrigen, setInputValueOrigen] = useState("");
   const [optionsOrigen, setOptionsOrigen] = useState([]);
@@ -51,7 +51,7 @@ const Principal = () => {
       setShowoptionsOrigen(false);
     }
 
-    const filteredoptionsOrigen = listOrigen.filter((option) =>
+    const filteredoptionsOrigen = listOrigen.filter((option) =>//hace un filtro para actualizar las opciones de acuerdo a la actualizacion del imput
       option.toLowerCase().includes(value.toLowerCase())
     );
 
@@ -75,9 +75,9 @@ const Principal = () => {
       inputValueOrigen !== "" &&
       fechaIda !== null &&
       fechaRegreso !== null
-    ) {
-      setButtonDisable(false);
-    }
+      ) {
+        setButtonDisable(false);// habilita boton buscar cuando se llenan todos los campos
+        }
   }, [inputValueOrigen, inputValueDestino, fechaIda, fechaRegreso]);
 
   const fetchMostrarDestinos = async () => {
@@ -116,7 +116,7 @@ const Principal = () => {
     setOptionsDestino(filteredoptionsDestino);
   };
 
-  const handleOptionClickDestino = (option) => {
+  const handleOptionClickDestino = (option) => {//hace un filtro para actualizar las opciones de acuerdo a la actualizacion del imput
     setInputValueDestino(option);
     setShowoptionsDestino(false);
   };
@@ -152,7 +152,6 @@ const Principal = () => {
             type="text"
             value={inputValueOrigen}
             onChange={handleChange}
-            onFocus={() => setShowoptionsOrigen(inputValueOrigen.length >= 3)}
             onBlur={() => setTimeout(() => setShowoptionsOrigen(false), 200)}
             placeholder="Origen..."
             style={{
@@ -197,7 +196,6 @@ const Principal = () => {
             type="text"
             value={inputValueDestino}
             onChange={handleChangeDestino}
-            onFocus={() => setShowoptionsDestino(inputValueDestino.length >= 3)}
             onBlur={() => setTimeout(() => setShowoptionsDestino(false), 200)}
             placeholder="Destino..."
             style={{
